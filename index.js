@@ -34,7 +34,8 @@ bot.on("message", async (msg) => {
 
   //   yozish();
   bot.on("inline_query", (query) => {
-    const results = [
+      const searchQuery = query.query.toLowerCase(); // Qidiruv so'zini kichik harflarga o'zgartirish
+        const results = [
       {
         type: "article",
         id: "1",
@@ -62,6 +63,9 @@ bot.on("message", async (msg) => {
         caption: "Bu uchinchi rasmli javob!",
       },
     ];
+const filteredResults = results.filter((item) =>
+        item.title.toLowerCase().includes(searchQuery) // Qidiruvga mos kelishini tekshirish
+    );
 
     bot.answerInlineQuery(query.id, results);
   });
