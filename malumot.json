@@ -1,0 +1,27 @@
+{
+  "message_id": 127,
+  "from": {
+    "id": 1635168683,
+    "is_bot": false,
+    "first_name": "01:07 .",
+    "last_name": "| 17:48",
+    "username": "Sirlishaxs03",
+    "language_code": "ru"
+  },
+  "chat": {
+    "id": 1635168683,
+    "first_name": "01:07 .",
+    "last_name": "| 17:48",
+    "username": "Sirlishaxs03",
+    "type": "private"
+  },
+  "date": 1743430927,
+  "text": "/start",
+  "entities": [
+    {
+      "offset": 0,
+      "length": 6,
+      "type": "bot_command"
+    }
+  ]
+}
