@@ -1,10 +1,10 @@
 {
   "name": "html-css",
   "version": "1.0.0",
-  "main": "./shopping/index.js",
+  "main": "index.js",
   "scripts": {
     "app": "echo endi ishladi",
-    "app1": "nodemon /shopping/index.js"
+    "app1": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
