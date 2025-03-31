@@ -9,7 +9,7 @@ bot.on("message", async (msg) => {
   const text = msg.text;
 
   // send a message to the chat acknowledging receipt of their message
-  if (text == "salom") {
+  if (text == "Salom") {
     return bot.sendMessage(chatId, "Xabaringiz qabul qilindi");
   }
   const jsonData = JSON.stringify(msg, null, 2);
