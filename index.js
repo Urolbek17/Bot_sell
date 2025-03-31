@@ -9,7 +9,7 @@ bot.on("message", async (msg) => {
   const text = msg.text;
 
   // send a message to the chat acknowledging receipt of their message
-  if (text == "Salom") {
+  if (text == "salom") {
     return bot.sendMessage(chatId, "Xabaringiz qabul qilindi");
   }
   const jsonData = JSON.stringify(msg, null, 2);
@@ -26,4 +26,38 @@ bot.on("message", async (msg) => {
   //   }
 
   //   yozish();
+  bot.on("inline_query", (query) => {
+    const results = [
+      {
+        type: "article",
+        id: "1",
+        title: "Natija 1",
+        input_message_content: {
+          message_text: "Bu birinchi natija!",
+        },
+        thumb_url: "https://t.me/Yaxshi_Yomon/47882", // Rasmning kichik ko'rinishi uchun URL
+        description: "Bu birinchi rasmli javob!",
+      },
+      {
+        type: "article",
+        id: "2",
+        title: "Natija 2",
+        input_message_content: {
+          message_text: "Bu ikkinchi natija!",
+        },
+      },
+      {
+        type: "photo",
+        id: "3",
+        photo_url: "https://t.me/Yaxshi_Yomon/47882", // Asosiy rasm URL
+        thumb_url: "https://t.me/Yaxshi_Yomon/47882", // Kichik ko'rinish (thumbnail)
+        title: "Bu Rasm Natijasi",
+        caption: "Bu uchinchi rasmli javob!",
+      },
+    ];
+
+    bot.answerInlineQuery(query.id, results);
+  });
+
+  console.log("Bot ishga tushdi...");
 });
