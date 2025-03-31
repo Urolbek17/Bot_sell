@@ -4,11 +4,11 @@ console.log("test nodemon 2025 ana ishladi");
 const TelegramBot = require("node-telegram-bot-api");
 const token = "7965659644:AAGgra9K9yKSW3-zAlCMUzzTVHD7Lm5UUsA";
 
-const express = require('express'); // Express kutubxonasini chaqirish
-const app = express(); 
+const express = require("express"); // Express kutubxonasini chaqirish
+const app = express();
 const PORT = 4000;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
 const bot = new TelegramBot(token, { polling: true });
 bot.on("message", async (msg) => {
@@ -16,8 +16,11 @@ bot.on("message", async (msg) => {
   const text = msg.text;
 
   // send a message to the chat acknowledging receipt of their message
-  if (text == "salom"||text=='/start') {
-    return bot.sendMessage(chatId, "Assalomu alaykum! botimizga xush kelibsiz!");
+  if (text == "salom" || text == "/start") {
+    return bot.sendMessage(
+      chatId,
+      "Assalomu alaykum! botimizga xush kelibsiz!"
+    );
   }
   const jsonData = JSON.stringify(msg, null, 2);
 
@@ -34,8 +37,8 @@ bot.on("message", async (msg) => {
 
   //   yozish();
   bot.on("inline_query", (query) => {
-      const searchQuery = query.query.toLowerCase(); // Qidiruv so'zini kichik harflarga o'zgartirish
-        const results = [
+    const searchQuery = query.query.toLowerCase(); // Qidiruv so'zini kichik harflarga o'zgartirish
+    const results = [
       {
         type: "article",
         id: "1",
@@ -63,11 +66,14 @@ bot.on("message", async (msg) => {
         caption: "Bu uchinchi rasmli javob!",
       },
     ];
-const filteredResults = results.filter((item) =>
-        item.title.toLowerCase().includes(searchQuery) // Qidiruvga mos kelishini tekshirish
+
+    // Qidiruvga mos keluvchi natijalarni filtrdan o'tkazish
+    const filteredResults = results.filter(
+      (item) => item.title.toLowerCase().includes(searchQuery) // Qidiruvga mos kelishini tekshirish
     );
 
-    bot.answerInlineQuery(query.id, results);
+    // Inline query javobini yuborish
+    bot.answerInlineQuery(query.id, filteredResults);
   });
 
   console.log("Bot ishga tushdi...");
