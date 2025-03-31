@@ -7,7 +7,7 @@ const token = "7965659644:AAGgra9K9yKSW3-zAlCMUzzTVHD7Lm5UUsA";
 const express = require('express'); // Express kutubxonasini chaqirish
 const app = express(); 
 const PORT = 4000;
-TelegramBot.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 const bot = new TelegramBot(token, { polling: true });
@@ -16,8 +16,8 @@ bot.on("message", async (msg) => {
   const text = msg.text;
 
   // send a message to the chat acknowledging receipt of their message
-  if (text == "salom") {
-    return bot.sendMessage(chatId, "Xabaringiz qabul qilindi");
+  if (text == "salom"||text=='/start') {
+    return bot.sendMessage(chatId, "Assalomu alaykum! botimizga xush kelibsiz!");
   }
   const jsonData = JSON.stringify(msg, null, 2);
 
