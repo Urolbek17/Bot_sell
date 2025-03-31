@@ -1,5 +1,12 @@
 console.log("test nodemon 2025 ana ishladi");
 // console.log("bu ikkinchisi2");
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 const TelegramBot = require("node-telegram-bot-api");
 const token = "7965659644:AAGgra9K9yKSW3-zAlCMUzzTVHD7Lm5UUsA";
 
