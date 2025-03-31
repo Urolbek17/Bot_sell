@@ -4,7 +4,7 @@ console.log("test nodemon 2025 ana ishladi");
 const TelegramBot = require("node-telegram-bot-api");
 const token = "7965659644:AAGgra9K9yKSW3-zAlCMUzzTVHD7Lm5UUsA";
 
-const PORT = 80;
+const PORT = 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
